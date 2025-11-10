@@ -58,7 +58,7 @@ public class Bonifico extends AggregateRoot<Bonifico> implements Applier  {
     }
 
     public void annulla() {
-        events(new BonificoConvalidato());
+        events(new BonificoAnnullato());
     }
 
     private void apply(BonificoCreato event) {
