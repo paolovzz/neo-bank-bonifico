@@ -13,23 +13,25 @@ import neo.bank.bonifico.application.BonificoUseCase;
 import neo.bank.bonifico.application.ports.input.commands.RecuperaBonificoDaIdCmd;
 import neo.bank.bonifico.domain.model.aggregates.Bonifico;
 import neo.bank.bonifico.domain.model.vo.IdOperazione;
-import neo.bank.bonifico.framework.adapter.input.rest.response.BonificoInfoResponse;
+import neo.bank.contocorrente.framework.adapter.input.rest.api.BonificoApi;
+import neo.bank.contocorrente.framework.adapter.input.rest.model.BonificoInfoResponse;
 
-@Path("/bonifici")
 @ApplicationScoped
 @Slf4j
-public class BonificoResource {
+public class BonificoResource implements BonificoApi{
 
     @Inject
     private BonificoUseCase app;
 
-    @Path("/{idOperazione}")
-    @GET
-    @Produces(value = MediaType.APPLICATION_JSON)
-    public Response recuperaBonificoDaIban(@PathParam(value = "idOperazione") String idOperazione) {
-
-        Bonifico contoCorrente = app.recuperaBonificoDaId(new RecuperaBonificoDaIdCmd(new IdOperazione(idOperazione)));
-        BonificoInfoResponse bodyResponse = new BonificoInfoResponse(contoCorrente);
+    @Override
+    public Response recuperaBonificoDaId(String idOperazione) {
+        Bonifico bonifico = app.recuperaBonificoDaId(new RecuperaBonificoDaIdCmd(new IdOperazione(idOperazione)));
+        BonificoInfoResponse bodyResponse = BonificoInfoResponse.builder()
+        .causale(bonifico.getCausale().getCausale())
+        .ibanDestinatario(bonifico.getIbanDestinatario().getCodice())
+        .ibanMittente(bonifico.getIbanMittente().getCodice())
+        .idOperazione(bonifico.getIdOperazione().getId())
+        .importo(bonifico.getImporto()).build();
         return Response.ok(bodyResponse).build();
     }
 }

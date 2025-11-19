@@ -5,7 +5,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 import neo.bank.bonifico.application.exceptions.BonificoNonTrovatoException;
-import neo.bank.bonifico.framework.adapter.input.rest.response.ErrorResponse;
+import neo.bank.contocorrente.framework.adapter.input.rest.model.ErrorResponse;
 
 @Provider
 public class BonificoNonTrovatoExceptionMapper implements ExceptionMapper<BonificoNonTrovatoException> {
