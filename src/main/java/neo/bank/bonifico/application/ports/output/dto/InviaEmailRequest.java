@@ -5,9 +5,9 @@ import neo.bank.bonifico.domain.model.enums.TipologiaNotifica;
 
 @Value
 public class InviaEmailRequest {
-    
-    private String ibanDestinatario;
     private String idOperazione;
-    private double importo;
     private TipologiaNotifica tipoNotifica;
+    private String ibanDestinatario;
+    private double importo;
+
 }

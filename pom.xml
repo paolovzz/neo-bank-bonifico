@@ -132,7 +132,7 @@
                 <version>7.0.1</version>
                 <executions>
                     <execution>
-                    <id>conto-corrente-server</id>
+                    <id>bonifico-server</id>
                     <phase>process-sources</phase>
                     <goals>
                     <goal>generate</goal>

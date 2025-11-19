@@ -27,7 +27,7 @@ public class NotificaServiceImpl implements NotificaService{
     @Override
     public void inviaEmail(Iban iban, double importo, IdOperazione idOperazione, TipologiaNotifica tipologiaNotifica) {
         log.info(("Richiesta invio email..."));
-        client.inviaEmail(new InviaEmailRequest(iban.getCodice(), idOperazione.getId(), importo, tipologiaNotifica));
+        client.inviaEmail(new InviaEmailRequest(idOperazione.getId(), tipologiaNotifica, iban.getCodice(),importo ));
     }
     
 }
