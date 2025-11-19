@@ -142,8 +142,8 @@
                         ${project.basedir}/src/main/openapi-server/openapi.yaml
                     </inputSpec>
                     <generatorName>jaxrs-spec</generatorName>
-                    <apiPackage>neo.bank.contocorrente.framework.adapter.input.rest.api</apiPackage>
-                    <modelPackage>neo.bank.contocorrente.framework.adapter.input.rest.model</modelPackage>
+                    <apiPackage>neo.bank.bonifico.framework.adapter.input.rest.api</apiPackage>
+                    <modelPackage>neo.bank.bonifico.framework.adapter.input.rest.model</modelPackage>
                     <output>${project.build.directory}/generated-sources/openapi</output>
                     <addCompileSourceRoot>true</addCompileSourceRoot>
                     <skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>

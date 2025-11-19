@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.UUID;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +21,6 @@ import neo.bank.bonifico.domain.model.vo.IdOperazione;
 
 @Slf4j
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Bonifico extends AggregateRoot<Bonifico> implements Applier  {
 
