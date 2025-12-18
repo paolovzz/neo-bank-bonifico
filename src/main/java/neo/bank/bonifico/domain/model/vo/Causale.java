@@ -12,7 +12,7 @@ public class Causale {
     private String causale;
 
     public Causale(String causale) {
-        if (causale == null) {
+        if (causale == null || causale.isBlank()) {
             throw new ValidazioneException(Causale.class.getSimpleName(),
                     CodiceErrore.CAUSALE_NON_PUO_ESSERE_NULL.getCodice());
         }
